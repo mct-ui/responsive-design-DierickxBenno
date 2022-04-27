@@ -238,6 +238,10 @@ a:focus {
     margin-top: 24px;
     display: flow-root
 }
+
+.o-row—content{
+    background-color: #f7f7f7;
+}
 /*
     Objects: Layout
     ---
