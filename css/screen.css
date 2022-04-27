@@ -194,6 +194,7 @@ a:focus {
 
 /* size modifiers */
 
+
 .o-row--lg {
     padding: 48px 24px 24px;
 }
@@ -202,6 +203,11 @@ a:focus {
     .o-row {
         padding-left: 48px;
         padding-right: 48px;
+    }
+
+    .o-row--md{
+        padding-top: 48px;
+        padding-bottom: 24px;
     }
 
     .o-row--lg {
@@ -223,6 +229,15 @@ a:focus {
     max-width: 70.5em; /* 70.5 * 16px = 1128px */
 }
 
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
+.o-section + .o-section{
+    margin-top: 24px;
+    display: flow-root
+}
 /*
     Objects: Layout
     ---
@@ -339,16 +354,66 @@ a:focus {
 .o-layout--align-content-space-between {
     align-content: space-between;
 }
-
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
+/* #region c-logo */
 .c-logo {
     height: 32px;
 }
 .c-logo__symbol {
     height: 100%;
 }
+/* #endregion*/
+
+/* #region nav */
+.c-nav{
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.c-nav__link{
+    text-decoration: none;
+    font-weight: 400;
+    padding: 8px, 0;
+}
+
+.c-nav__link--meta{
+    font-size: 16px;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+    color: #202024;
+}
+
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active {
+    color: #6c6c75;
+}
+
+.is-selected .c-nav__link:hover,
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #5051db;
+}
+/* #endregion nav */
+
+/* #region header */
+.c-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.c-header__nav {
+    display: none;
+}
+
+
+/* #endregion header */
 
 /*------------------------------------*\
   #UTILITIES
@@ -359,6 +424,9 @@ a:focus {
     ---
     Utility classes to put specific max widths onto elements
 */
+.u-pt-clear{
+    padding-top: 0 !important;
+}
 
 .u-max-width-xs {
     max-width: 18em !important;
@@ -617,16 +685,35 @@ a:focus {
     .c-logo {
         height: 40px;
     }
+    
+    .c-nav__list{
+        display: flex;
+        gap: 48px;
+    }
+
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl{
+        margin-top: 48px;
+    }
+
 }
 
-/* Large devices (landscape tablets, desktops, 992px and up)
-@media (min-width: 992px) {}
-*/
+/* Large devices (landscape tablets, desktops, 992px and up*/
+@media (min-width: 992px) {
+    .c-header{
 
-/* Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
-*/
+    }
 
+    .c-header__nav{
+        display: block;
+    }
+}
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+    .o-section--xl + .o-section--xl{
+        margin-top: 72px
+    }
+}
 /*
     Print styles.
     ---
